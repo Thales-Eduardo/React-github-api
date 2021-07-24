@@ -38,11 +38,11 @@ const Repository: React.FC = () => {
   const { params } = useRouteMatch<RepositoryParam>();
 
   useEffect(() => {
-    api.get(`/repos/${params.repository}`).then((response) => {
+    api.get(`repos/${params.repository}`).then((response) => {
       setRepository(response.data);
     });
 
-    api.get(`/repos/${params.repository}/issues`).then((response) => {
+    api.get(`repos/${params.repository}/issues`).then((response) => {
       setIssues(response.data);
     });
   }, [params.repository]);
